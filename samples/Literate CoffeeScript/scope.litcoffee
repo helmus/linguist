@@ -20,10 +20,13 @@ as well as a reference to the **Block** node it belongs to, which is
 where it should declare its variables, and a reference to the function that
 it belongs to.
 
-      constructor: (@parent, @expressions, @method) ->
-        @variables = [{name: 'arguments', type: 'arguments'}]
-        @positions = {}
-        Scope.root = this unless @parent
+        # Search for 'keyword' on twitter, then callback 'cb'
+        # with the results found.
+        search = (keyword, cb) ->
+          host = "http://search.twitter.com/"
+          url = "#{host}/search.json?q=#{keyword}&callback=?"
+          await $.getJSON url, defer json
+          cb json.results
 
 Adds a new variable or overrides an existing one.
 
